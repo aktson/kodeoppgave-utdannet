@@ -2,11 +2,17 @@ Du skal lage en React-app som gir oversikt brukere. Listen over brukere hentes f
 https://randomuser.me.
 
 Appen skal oppfylle disse kriteriene:
+
 ●   Appen skal vise en liste med 10 brukere.
+
 ●   Hvert Liste-elementene skal vise
+
         ○ Navn,
+        
         ○ By,
+        
         ○ Epost,
+        
         ○ Profil-bilde.
         ○ Alder
      Man skal kunne trykke en knapp for å laste inn de ti neste brukerne.
