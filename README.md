@@ -1,30 +1,32 @@
 Du skal lage en React-app som gir oversikt brukere. Listen over brukere hentes fra siden:
 https://randomuser.me.
+
 Appen skal oppfylle disse kriteriene:
-● Appen skal vise en liste med 10 brukere.
-● Hvert Liste-elementene skal vise
-○ Navn,
-○ By,
-○ Epost,
-○ Profil-bilde.
-○ Alder
-● Man skal kunne trykke en knapp for å laste inn de ti neste brukerne.
-● Man skal kunne trykke en knapp for å laste inn de forrige ti brukerne (om man ikke
-allerede er på starten).
-● Man skal kunne klikke på hver bruker og få opp en side med ekstra-informasjon om
-brukeren, i tillegg til det som allerede vises:
-○ Brukernavn
-○ Full adresse
-○ Fødselsdag (i norsk dato-format)
-○ Registreringsdato (i norsk-dato-format)
-○ En unik id
-○ En knapp for å sende en e-post til brukeren
-● Man skal kunne merke en bruker som favoritt
-● Siden skal ha en egen boks som viser favoritter
-● Brukere skal kunne fjernes fra favoritt-boksen.
-● Appen skal huske hvilke brukere man har merket selv om nettleseren lukkes og åpnes
-igjen.
-● Appen skal ha et pent design
+●   Appen skal vise en liste med 10 brukere.
+●   Hvert Liste-elementene skal vise
+        ○ Navn,
+        ○ By,
+        ○ Epost,
+        ○ Profil-bilde.
+        ○ Alder
+     Man skal kunne trykke en knapp for å laste inn de ti neste brukerne.
+     Man skal kunne trykke en knapp for å laste inn de forrige ti brukerne (om man ikke
+    allerede er på starten).
+  ● Man skal kunne klikke på hver bruker og få opp en side med ekstra-informasjon om
+  brukeren, i tillegg til det som allerede vises:
+      ○ Brukernavn
+      ○ Full adresse
+      ○ Fødselsdag (i norsk dato-format)
+      ○ Registreringsdato (i norsk-dato-format)
+      ○ En unik id
+      ○ En knapp for å sende en e-post til brukeren
+●   Man skal kunne merke en bruker som favoritt
+●   Siden skal ha en egen boks som viser favoritter
+●   Brukere skal kunne fjernes fra favoritt-boksen.
+●   Appen skal huske hvilke brukere man har merket selv om nettleseren lukkes og åpnes
+    igjen.
+●   Appen skal ha et pent design
+
 Har du ekstra tid kan du også implementere følgende funksjonaliteter:
 ● Mulighet til å sortere brukerne
 ○ Alfabetisk etter navn
