@@ -52,11 +52,11 @@ Har du ekstra tid kan du også implementere følgende funksjonaliteter:
 
 ● Mulighet til å sortere brukerne
 
-○ Alfabetisk etter navn
+        ○ Alfabetisk etter navn
 
-○ Etter alder
+        ○ Etter alder
 
-○ Etter merket som avoritt
+        ○ Etter merket som avoritt
 
 ● Antall dager til neste fødsesldag
 
