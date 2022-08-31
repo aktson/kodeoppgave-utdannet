@@ -1,13 +1,61 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	--primary: #570df8;
+	--secondary: #f000b8;
+	--accent: #37cdbe;
+	--light: #ffffff;
+	--info: #3abff8;
+	--neutral: #3d4451;
+	--success: #36d399;
+	--warning: #fbbd23;
+	--error: #f87272;
+	--body-fonts: "Martel Sans", sans-serif;
+	--cursive-fonts: "Metal", cursive;
+	--heading-fonts: "Philosopher", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+#root {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+	position: relative;
+}
+main {
+	flex: 1 0 auto;
+}
+.active {
+	pointer-events: none;
+	border-bottom: 2px solid var(--accent);
+}
+@layer base {
+	h1 {
+		@apply text-4xl  mb-8 leading-loose lg:text-5xl;
+	}
+	h2 {
+		@apply text-4xl  mb-5 relative;
+	}
+	h3 {
+		@apply text-2xl mb-3;
+	}
+	h4 {
+		@apply text-xl font-bold mb-2;
+	}
+}
+
+@layer components {
+	.nav-list {
+		@apply inline-block mx-4 p-2 text-base hover:border-b-2  transition-all ease-in-out hover:animate-pulse cursor-pointer;
+	}
+	.btn {
+		@apply text-white rounded-none p-4;
+	}
 }
