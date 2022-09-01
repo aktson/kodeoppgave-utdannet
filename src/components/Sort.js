@@ -13,7 +13,7 @@ function SortAlphabatic() {
 
             const alphabaticOrdered = users.sort((a, b) => a.name.first.localeCompare(b.name.first));
 
-            setUsers(alphabaticOrdered)
+            setUsers([...users, alphabaticOrdered])
 
         } else if (selectedValue === "age") {
 

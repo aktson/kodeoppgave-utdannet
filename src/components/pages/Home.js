@@ -5,10 +5,10 @@ import Loader from '../Loader';
 import Hero from '../layout/Hero';
 
 
+
 function Home() {
 
     const { isLoading, users } = React.useContext(UsersContext);
-
 
     if (!isLoading) {
         return (

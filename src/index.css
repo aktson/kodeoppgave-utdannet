@@ -64,6 +64,9 @@ main {
 	.heart {
 		@apply absolute right-3 top-3 text-2xl;
 	}
+	.card {
+		@apply shadow-xl grid grid-rows-2 gap-2  cursor-pointer bg-white  items-center hover:animate-pulse;
+	}
 }
 .favourited {
 	color: red;

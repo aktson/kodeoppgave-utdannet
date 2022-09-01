@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { FaSearch } from "react-icons/fa";
 import UsersContext from '../context/UsersContext';
 import { ToastContainer, toast } from 'react-toastify';
@@ -24,6 +24,7 @@ function SearchInput() {
 
         } else {
             setUsers(filteredUsers)
+
         }
     }
 

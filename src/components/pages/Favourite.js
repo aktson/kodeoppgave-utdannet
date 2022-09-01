@@ -1,29 +1,21 @@
 import React from 'react';
 import UserCard from '../UserCard';
-import { getFromStorage } from "./UserSpecific";
+import { useLocalStorage } from '../useLocalStorage';
 
 function Favourite() {
 
-    const usersInStorage = getFromStorage("users");
+    const [itemsInStorage] = useLocalStorage("users", [])
 
-    const users = usersInStorage.map(user => {
+    const users = itemsInStorage.map(user => {
         return <UserCard user={user} key={user.login.uuid} />
     })
 
-    if (usersInStorage.length === 0) {
-        return (
-            <section className='flex justify-center items-center my-6'>
-                <div className='px-8 py-10 shadow-lg bg-indigo-100 text-2xl'>No favourite user here yet!!</div>
-            </section>
-        )
-    } else {
-        return (
-            <section className='flex justify-center items-center my-6'>
-                <div className='grid grid-cols-1 sm:grid-cols-3 gap-4'>{users}</div>
-            </section>
-        )
-    }
-
+    return (
+        <section className='flex justify-center items-center my-6'>
+            {itemsInStorage.length === 0 ? <div className='px-8 py-5 shadow-lg bg-pink-500 text-xl text-white'>No favourite user here yet!!</div> :
+                <div className='grid grid-cols-1 sm:grid-cols-3 gap-4'>{users}</div>}
+        </section>
+    )
 }
 
 export default Favourite;
