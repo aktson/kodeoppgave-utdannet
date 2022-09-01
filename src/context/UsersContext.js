@@ -1,5 +1,6 @@
 import React from 'react'
 import { createContext, useEffect } from "react";
+import { toast } from 'react-toastify';
 import { baseUrl } from '../settings';
 
 const UsersContext = createContext();
@@ -15,7 +16,7 @@ export function UsersProvider({ children }) {
 
             const response = await fetch(baseUrl + "?seed=00000&page=1&results=10");
             const data = await response.json();
-            console.log(data)
+
             const fetchedUsers = data.results;
 
             setIsLoading(false)
@@ -23,6 +24,8 @@ export function UsersProvider({ children }) {
 
 
         } catch (error) {
+            console.log(error)
+            toast.error("Unknown error occured")
 
         }
     }
@@ -31,26 +34,10 @@ export function UsersProvider({ children }) {
         getUsers();
     }, [])
 
-    async function getSpecificUser(login) {
-        try {
 
-            const response = await fetch(baseUrl + "");
-            const data = await response.json();
-            console.log(data)
-            const fetchedUsers = data.results;
-
-            setIsLoading(false)
-            setUsers(fetchedUsers)
-
-
-        } catch (error) {
-
-        }
-
-    }
 
     return <UsersContext.Provider value={{
-        isLoading, getUsers, users
+        isLoading, getUsers, users, setUsers
     }}>
         {children}
     </UsersContext.Provider>

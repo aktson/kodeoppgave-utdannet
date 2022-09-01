@@ -15,8 +15,6 @@ function Nav() {
                     <li onClick={() => navigate("/")} className={location.pathname === "/" ? "active nav-list" : "nav-list"}>Home</li>
                     <li onClick={() => navigate("/about")} className={location.pathname === "/about" ? "active nav-list" : "nav-list"}>About</li>
                     <li onClick={() => navigate("/favourite")} className={location.pathname === "/favourite" ? "active nav-list" : "nav-list"}>Favourite</li>
-                    <li onClick={() => navigate("/userspecific")} className={location.pathname === "/userspecific" ? "active nav-list" : "nav-list"}>UserSpecific</li>
-
                 </ul>
             </div>
         </nav >

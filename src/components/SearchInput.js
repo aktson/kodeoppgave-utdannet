@@ -1,14 +1,43 @@
 import React from 'react'
+import { FaSearch } from "react-icons/fa";
+import UsersContext from '../context/UsersContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function SearchInput() {
+
+    const { users, setUsers } = React.useContext(UsersContext)
+
+    const [value, setValue] = React.useState("");
+
+    const handleKeyupEvent = (event) => {
+        event.preventDefault();
+
+        const filteredUsers = users.filter(user => {
+            if (user.name.first.toLowerCase().trim().includes(value) || user.name.last.toLowerCase().trim().includes(value)) {
+                return true
+            }
+        })
+
+        if (filteredUsers.length === 0) {
+            toast.error("No users found")
+
+        } else {
+            setUsers(filteredUsers)
+        }
+    }
+
     return (
-        <label className="relative block">
-            <span className="sr-only">Search</span>
-            <span className="absolute inset-y-0 left-0 flex items-center pl-2">
-                <svg className="h-5 w-5 fill-slate-300" viewBox="0 0 20 20"></svg>
-            </span>
-            <input className="placeholder:italic placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-2 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm" placeholder="Search for anything..." type="text" name="search" />
-        </label>
+        <form onKeyUp={handleKeyupEvent} className="w-full ">
+            <ToastContainer />
+            <label className="relative sm:flex-initial sm:w-full ">
+                <span className="sr-only">Search</span>
+                <span className="absolute inset-y-0 left-0 flex items-center pl-2">
+                    <FaSearch />
+                </span>
+                <input className="input" placeholder="search user" type="text" name="search" value={value} onChange={(e) => setValue(e.target.value)} />
+            </label>
+        </form>
     )
 }
 

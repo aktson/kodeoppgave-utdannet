@@ -6,7 +6,6 @@ function Header() {
     return (
         <header className=' flex flex-col justify-center'>
             <Nav />
-            <Hero />
         </header>
     )
 }

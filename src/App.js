@@ -12,7 +12,7 @@ function App() {
     <UsersProvider>
       <Router>
         <Header />
-        <main className="p-2">
+        <main >
           <Routes>
             <Route exact path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
