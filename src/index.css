@@ -29,10 +29,13 @@ body {
 main {
 	flex: 1 0 auto;
 }
+h1 {
+	font-family: var(--heading-fonts);
+}
 
 @layer base {
 	h1 {
-		@apply text-4xl  mb-8 leading-loose lg:text-5xl text-teal-600;
+		@apply text-3xl leading-loose lg:text-5xl;
 	}
 	h2 {
 		@apply text-4xl  mb-5 relative;
@@ -108,12 +111,10 @@ main {
 }
 
 /* HERO HOMEPAGE */
-
 .hero {
 	background: url("./assets/people-using-smartphones.jpg") no-repeat top;
 	background-size: cover;
 	min-height: 30vh;
-	object-fit: cover;
 }
 .heading-hero {
 	background-color: rgba(20, 184, 166, 0.3);
@@ -121,6 +122,29 @@ main {
 	padding: 0.5em 0.1em 0.5em 1.5em;
 	margin: 0 auto;
 }
-h1 {
-	font-family: var(--heading-fonts);
+/* custtom modal */
+
+#my-modal {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 999;
+	--tw-bg-opacity: 0.8;
+	background-color: hsla(var(--nf) / var(--tw-bg-opacity, 1));
+	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
+	transition-duration: 0.2s;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	visibility: visible;
+	overflow-y: scroll;
+}
+#overlay {
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background-color: rgba(0, 0, 0, 0.8);
+	cursor: pointer;
 }

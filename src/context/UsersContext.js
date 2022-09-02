@@ -10,7 +10,6 @@ export function UsersProvider({ children }) {
     const [isLoading, setIsLoading] = React.useState(true);
     const [users, setUsers] = React.useState([]);
 
-
     async function getUsers() {
         try {
 
@@ -34,8 +33,6 @@ export function UsersProvider({ children }) {
     useEffect(() => {
         getUsers();
     }, [])
-
-
 
     return <UsersContext.Provider value={{
         isLoading, getUsers, users, setUsers, setIsLoading

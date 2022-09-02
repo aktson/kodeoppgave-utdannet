@@ -1,35 +1,17 @@
 import React from 'react';
-import UsersContext from '../context/UsersContext';
 
 
-function Sort() {
+function Sort({ handleSorting }) {
 
-    const { users, setUsers } = React.useContext(UsersContext);
-
-    const handleChange = (event) => {
-        const selectedValue = event.target.value;
-
-        if (selectedValue === "alphabatic") {
-
-            const alphabaticOrdered = users.sort((a, b) => a.name.first.localeCompare(b.name.first));
-
-            setUsers([...users, alphabaticOrdered])
-
-        } else if (selectedValue === "age") {
-
-            const sortedByAge = users.sort((a, b) => parseInt(a.dob.age) - parseInt(b.dob.age));
-
-            setUsers([...users, sortedByAge])
-        }
-    }
     return (
         <>
-            <label className="inline" htmlFor="cars"></label>
-            <select id="cars" className='input sm:flex-initial sm:w-96' onChange={handleChange}>
-                <option value="">Sort</option>
+            <label className="inline" htmlFor="users"></label>
+            <select id="users" name="users" className='input sm:flex-initial sm:w-96' onChange={handleSorting}>
+                <option value="none" >Sort</option>
                 <option value="alphabatic">Alphabatic</option>
                 <option value="age">By age</option>
             </select>
+
         </>
 
     )
