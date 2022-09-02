@@ -25,22 +25,48 @@ function Home() {
     const paginate = (pageNumber) => {
         setCurrentPage(pageNumber)
     }
+
+
+    const [value, setValue] = React.useState("");
+
+    const [filterUsers, setFilterUsers] = React.useState([])
+
+    const handleSearchChange = (e) => {
+        setValue(e.target.value)
+
+        if (value !== "") {
+            const filteredUsers = users.filter(user => {
+                if (user.name.first.toLowerCase().trim().includes(value) || user.name.last.toLowerCase().trim().includes(value)) {
+                    return true
+                }
+            })
+            setFilterUsers(filteredUsers)
+        } else {
+            setFilterUsers(users)
+        }
+
+    }
+
+    const searchFilteredData = filterUsers.map(user => {
+        return <UserCard key={user.login.uuid} user={user} />
+    })
+
+    const usersOnpage = currentUsersOnPage.map(user => (
+        <UserCard key={user.login.uuid} user={user} />
+    ))
     if (!isLoading) {
         return (
             <>
                 <Hero />
                 <section className='flex flex-col justify-center items-center my-5 gap-6'>
                     <div className='flex shadow-xl gap-4 w-full container max-w-4xl p-6 -translate-y-12 bg-slate-600'>
-                        <SearchInput />
+                        <SearchInput handleSearchChange={handleSearchChange} />
                         <Sort />
                     </div>
                     <div className='container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl'>
-                        {currentUsersOnPage.map(user => (
-                            <UserCard key={user.login.uuid} user={user} />
-                        ))}
+                        {value.length > 1 ? searchFilteredData : usersOnpage}
                     </div>
                     <Pagination usersPerPage={usersPerPage} totalUsers={users.length} paginate={paginate} />
-
                 </section>
             </>
         )

@@ -99,7 +99,7 @@ main {
 .logo::after {
 	content: "";
 	position: absolute;
-	right: -45%;
+	right: -25%;
 	bottom: 1px;
 	width: 140px;
 	height: 4px;

@@ -3,47 +3,49 @@ import { FaSearch } from "react-icons/fa";
 import UsersContext from '../context/UsersContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import UserCard from './UserCard';
 
-function SearchInput() {
-
-    const { users, setUsers } = React.useContext(UsersContext)
-
-    const [value, setValue] = React.useState("");
-
-    const [filterUsers, setFilterUsers] = React.useState(users)
-
-    const handleKeyupEvent = (event) => {
-        event.preventDefault();
-        if (value === "") {
-            setUsers(users)
-            return null;
-        }
-        const filteredUsers = users.filter(user => {
-            if (user.name.first.toLowerCase().trim().includes(value) || user.name.last.toLowerCase().trim().includes(value)) {
-                return true
-            }
-        })
-
-        if (filteredUsers.length === 0) {
-            toast.error("No users found")
+function SearchInput({ value, handleSearchChange }) {
 
 
-        } else {
-            setFilterUsers(filteredUsers)
 
-        }
-    }
+    // const handleKeyupEvent = (event) => {
+    //     event.preventDefault();
+    //     if (value > 1) {
+    //         filterUsers.map(user => {
+    //             <UserCard user={user} />
+    //         })
+    //     } else {
+    //         setUsers(users)
+    //     }
+
+    // }
+
+    // const filteredUsers = users.filter(user => {
+    //     if (user.name.first.toLowerCase().trim().includes(value) || user.name.last.toLowerCase().trim().includes(value)) {
+    //         return true
+    //     }
+    // })
+    // setFilterUsers(filteredUsers)
+
+    // if (filteredUsers.length === 0) {
+    //     toast.error("No users found")
+    // } else {
+
+    //     setUsers([...filterUsers, filterUsers])
+    // }
+
 
     return (
         <>
-            <form onKeyUp={handleKeyupEvent} className="w-full ">
+            <form className="w-full ">
                 <ToastContainer />
                 <label className="relative sm:flex-initial sm:w-full ">
                     <span className="sr-only">Search</span>
                     <span className="absolute inset-y-0 left-0 flex items-center pl-2">
                         <FaSearch />
                     </span>
-                    <input className="input" placeholder="search user" type="text" name="search" value={value} onChange={(e) => setValue(e.target.value)} />
+                    <input className="input" placeholder="search user" type="text" name="search" value={value} onChange={handleSearchChange} />
                 </label>
             </form>
 
