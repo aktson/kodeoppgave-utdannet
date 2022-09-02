@@ -10,7 +10,7 @@ function SearchInput() {
 
     const [value, setValue] = React.useState("");
 
-    const [filterUsers, setFilterUsers] = React.useState([])
+    const [filterUsers, setFilterUsers] = React.useState(users)
 
     const handleKeyupEvent = (event) => {
         event.preventDefault();
@@ -29,7 +29,7 @@ function SearchInput() {
 
 
         } else {
-            setUsers(filterUsers)
+            setFilterUsers(filteredUsers)
 
         }
     }
