@@ -2,7 +2,7 @@ import React from 'react';
 import UsersContext from '../context/UsersContext';
 
 
-function SortAlphabatic() {
+function Sort() {
 
     const { users, setUsers } = React.useContext(UsersContext);
 
@@ -19,7 +19,7 @@ function SortAlphabatic() {
 
             const sortedByAge = users.sort((a, b) => parseInt(a.dob.age) - parseInt(b.dob.age));
 
-            setUsers(sortedByAge)
+            setUsers([...users, sortedByAge])
         }
     }
     return (
@@ -35,4 +35,4 @@ function SortAlphabatic() {
     )
 }
 
-export default SortAlphabatic
+export default Sort

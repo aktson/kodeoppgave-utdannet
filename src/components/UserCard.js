@@ -18,7 +18,7 @@ function UserCard({ user }) {
     return (
 
         <div className=' relative'>
-            <Link to={`/userspecific?id=${user.login.uuid}`} className="text-indigo-900 hover:text-indigo-800 card">
+            <Link to={`/userspecific?id=${user.login.uuid}`} className="text-slate-900 hover:text-slate-800 card">
                 <figure className="  relative w-full h-full border-b bg-slate-200">
                     <img className="object-cover h-36 w-36 rounded-full mx-auto absolute top-14 right-0 left-0 bottom-0 shadow-md" src={user.picture.large} />
                 </figure>

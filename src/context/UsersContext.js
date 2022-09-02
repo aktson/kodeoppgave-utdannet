@@ -14,7 +14,7 @@ export function UsersProvider({ children }) {
     async function getUsers() {
         try {
 
-            const response = await fetch(baseUrl + "?seed=00000&page=1&results=10", {
+            const response = await fetch(baseUrl + "?seed=00000&page=1&results=24", {
                 mode: "cors",
             });
             const data = await response.json();
@@ -23,7 +23,6 @@ export function UsersProvider({ children }) {
 
             setIsLoading(false)
             setUsers(fetchedUsers)
-
 
         } catch (error) {
             console.log(error)
@@ -39,7 +38,7 @@ export function UsersProvider({ children }) {
 
 
     return <UsersContext.Provider value={{
-        isLoading, getUsers, users, setUsers
+        isLoading, getUsers, users, setUsers, setIsLoading
     }}>
         {children}
     </UsersContext.Provider>

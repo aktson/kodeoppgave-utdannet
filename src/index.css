@@ -1,20 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url("https://fonts.googleapis.com/css2?family=Aboreto&family=Nanum+Gothic&display=swap");
 
 :root {
-	--primary: #570df8;
+	--primary: #14b8a6;
 	--secondary: #f000b8;
-	--accent: #37cdbe;
-	--light: #ffffff;
-	--info: #3abff8;
-	--neutral: #3d4451;
-	--success: #36d399;
-	--warning: #fbbd23;
-	--error: #f87272;
-	--body-fonts: "Martel Sans", sans-serif;
-	--cursive-fonts: "Metal", cursive;
-	--heading-fonts: "Philosopher", sans-serif;
+	--body-fonts: "Nanum Gothic", sans-serif;
+	--heading-fonts: "Aboreto", cursive;
 }
 
 * {
@@ -29,16 +22,17 @@
 	flex-direction: column;
 	position: relative;
 }
+body {
+	font-family: var(--body-fonts);
+}
+
 main {
 	flex: 1 0 auto;
 }
-.active {
-	pointer-events: none;
-	border-bottom: 2px solid var(--accent);
-}
+
 @layer base {
 	h1 {
-		@apply text-4xl  mb-8 leading-loose lg:text-5xl;
+		@apply text-4xl  mb-8 leading-loose lg:text-5xl text-teal-600;
 	}
 	h2 {
 		@apply text-4xl  mb-5 relative;
@@ -52,14 +46,23 @@ main {
 }
 
 @layer components {
-	.nav-list {
-		@apply inline-block mx-4 p-2 text-base hover:border-b-2  transition-all ease-in-out hover:animate-pulse cursor-pointer;
+	/* NAV */
+	nav {
+		@apply p-3 bg-slate-800  flex  justify-center items-center;
 	}
+	.nav-list {
+		@apply flex flex-col items-center gap-2 mx-4 p-2 text-base text-slate-50 cursor-pointer hover:text-teal-500;
+	}
+	.nav-icons {
+		@apply text-2xl hover:text-teal-500;
+	}
+
+	/* GLOBAL  */
 	.btn {
-		@apply text-white rounded-none p-2 py-3;
+		@apply text-white bg-teal-600  rounded-none p-2 py-3 hover:animate-pulse;
 	}
 	.input {
-		@apply placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-4 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm;
+		@apply placeholder:text-slate-400 block bg-white w-full border border-slate-300 rounded-md py-4 pl-9 pr-3 shadow-sm focus:outline-none focus:border-teal-500 focus:ring-teal-500 focus:ring-1 sm:text-sm;
 	}
 	.heart {
 		@apply absolute right-3 top-3 text-2xl;
@@ -67,7 +70,57 @@ main {
 	.card {
 		@apply shadow-xl grid grid-rows-2 gap-2  cursor-pointer bg-white  items-center hover:animate-pulse;
 	}
+	.active {
+		@apply pointer-events-none text-teal-500;
+	}
 }
-.favourited {
-	color: red;
+
+/* CUSTOM STYLING */
+
+/* LOGO */
+.logo {
+	font-family: var(--heading-fonts);
+	padding: 1em;
+	font-size: 1.2em;
+	position: absolute;
+	left: 2em;
+	color: white;
+}
+.logo::before {
+	content: "";
+	position: absolute;
+	left: 60%;
+	bottom: 10px;
+	width: 180px;
+	height: 4px;
+	transform: skew(-12deg) translateX(-50%);
+	background: var(--primary);
+}
+.logo::after {
+	content: "";
+	position: absolute;
+	right: -45%;
+	bottom: 1px;
+	width: 140px;
+	height: 4px;
+	transform: skew(-12deg) translateX(-50%);
+	background: var(--primary);
+}
+
+/* HERO HOMEPAGE */
+
+.hero {
+	background: url("./assets/people-using-smartphones.jpg") no-repeat top;
+	background-size: cover;
+	min-height: 30vh;
+	object-fit: cover;
+}
+.heading-hero {
+	background-color: rgba(20, 184, 166, 0.3);
+	color: white;
+	padding: 0.5em 0.1em 0.5em 1.5em;
+	margin: 0 auto;
+}
+h1 {
+	font-family: var(--heading-fonts);
 }

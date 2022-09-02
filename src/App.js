@@ -6,6 +6,7 @@ import Home from "./components/pages/Home";
 import About from "./components/pages/About";
 import Favourite from "./components/pages/Favourite";
 import { UsersProvider } from "./context/UsersContext";
+import Navigation from "./components/layout/Navigation";
 
 function App() {
   return (

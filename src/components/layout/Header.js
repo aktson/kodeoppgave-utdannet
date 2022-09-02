@@ -1,11 +1,12 @@
 import React from 'react'
 import Hero from './Hero'
-import Nav from './Nav'
+import Navigation from './Navigation'
+
 
 function Header() {
     return (
-        <header className=' flex flex-col justify-center'>
-            <Nav />
+        <header className='flex flex-col justify-center'>
+            <Navigation />
         </header>
     )
 }
