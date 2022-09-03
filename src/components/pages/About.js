@@ -1,5 +1,5 @@
 import React from 'react';
-import people from "../../assets/peoplePassport.png";
+import people from "../../assets/people.jpg";
 import Fade from "react-reveal/Fade"
 
 function About() {
