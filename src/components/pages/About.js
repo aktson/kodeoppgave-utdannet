@@ -5,7 +5,7 @@ function About() {
     return (
         <section className='flex flex-col justify-center items-center gap-2 ' style={{ minHeight: "70vh" }} >
 
-            <div className='container grid grid-cols-1 md:grid-cols-3 max-w-5xl shadow-xl bg-white'>
+            <div className='container grid grid-cols-1 md:grid-cols-3 max-w-5xl shadow-xl bg-white p-4'>
 
                 {/* grid item 1  */}
                 <div className="grid grid-rows-2 p-4 items-center ">

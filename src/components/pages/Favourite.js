@@ -1,13 +1,13 @@
 import React from 'react';
-import UserCard from '../UserCard';
 import { useLocalStorage } from '../useLocalStorage';
+import CardFavourtie from '../CardFavourtie';
 
 function Favourite() {
 
     const [itemsInStorage] = useLocalStorage("users", [])
 
     const users = itemsInStorage.map(user => {
-        return <UserCard user={user} key={user.login.uuid} />
+        return <CardFavourtie user={user} key={user.login.uuid} />
     })
 
     return (

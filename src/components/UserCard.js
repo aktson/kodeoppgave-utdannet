@@ -41,7 +41,7 @@ function UserCard({ user }) {
             <div className=' relative'>
                 <div className="text-slate-900 hover:text-slate-800 card" onClick={openModal} >
                     <figure className=" relative w-full h-full border-b bg-slate-200" >
-                        <img className="object-cover h-36 w-36 rounded-full mx-auto absolute top-14 right-0 left-0 bottom-0 shadow-md" src={user.picture.large} />
+                        <img className="object-cover h-36 w-36 rounded-full mx-auto absolute top-20 right-0 left-0 shadow-md" src={user.picture.large} />
                     </figure>
                     <div className='p-5 flex flex-col  row-span-2 gap-1 mt-3'>
                         <h3 >{user.name.first} {user.name.last}</h3>

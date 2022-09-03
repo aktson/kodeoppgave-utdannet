@@ -103,22 +103,22 @@ function CardUserSpecific({ open, onClose, passedId, user, setIsFavourite }) {
                 </div>
                 {/* end og grid Container*/}
                 <div className=' w-full max-w-4xl z-10 '>
-                    <div className='grid grid-cols-3 gap-2  text-center text-white'>
-                        <div className='flex flex-col shadow-lg p-3 bg-indigo-800 gap-3 items-center justify-around'>
+                    <div className='grid grid-cols-3 gap-2  text-center text-slate-800'>
+                        <div className='flex flex-col shadow-lg p-3 bg-white gap-3 items-center justify-around'>
                             <FaHourglassHalf className='text-3xl text-teal-600' />
                             <span>Time Since Registered</span>
-                            <p className='text-teal-300'>{timeSinceRegistered}</p>
+                            <p className='text-teal-700'>{timeSinceRegistered}</p>
                         </div>
-                        <div className='flex flex-col shadow-lg p-3 bg-indigo-800 gap-3 items-center justify-around '>
+                        <div className='flex flex-col shadow-lg p-3 bg-white gap-3 items-center justify-around '>
                             <FaBirthdayCake className='text-3xl text-teal-600 ' />
                             <span>Days until next Birthday</span>
-                            <p className='text-teal-300'>{timeUntilNextBirthday}</p>
+                            <p className='text-teal-700'>{timeUntilNextBirthday}</p>
 
                         </div>
-                        <div className='flex shadow-lg flex-col p-3 bg-indigo-800 gap-3 justify-around items-center '>
+                        <div className='flex shadow-lg flex-col p-3 bg-white gap-3 justify-around items-center '>
                             <FaPhoneVolume className='text-3xl text-teal-600 ' />
                             <span>Telephone</span>
-                            <p className='text-teal-300'>{user.cell}</p>
+                            <p className='text-teal-700'>{user.cell}</p>
                         </div>
                     </div>
                 </div>
