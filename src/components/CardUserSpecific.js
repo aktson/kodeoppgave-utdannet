@@ -4,9 +4,9 @@ import { useLocalStorage } from './useLocalStorage';
 import { ToastContainer, toast } from "react-toastify";
 import { FaEnvelope, FaMapMarkerAlt, FaHeart, FaHourglassHalf, FaPhoneVolume, FaBirthdayCake } from "react-icons/fa";
 import moment from "moment";
-import Fade from 'react-reveal/Fade';
+import Bounce from 'react-reveal/Bounce';
 
-function CardUserSpecific({ open, onClose, passedId, user }) {
+function CardUserSpecific({ open, onClose, passedId, user, setIsFavourite }) {
 
     const [id, setId] = React.useState(user.id.name);
 
@@ -23,6 +23,7 @@ function CardUserSpecific({ open, onClose, passedId, user }) {
 
         if (!findExistingUser) {
             setItemsInStorage([...itemsInStorage, user])
+            setIsFavourite(true)
             toast.success("Added to favourite")
 
         } else {
@@ -31,10 +32,11 @@ function CardUserSpecific({ open, onClose, passedId, user }) {
         }
     }
 
-    //click event to remove item from localstorage and ui
+    // click event to remove item from localstorage and ui
     const removeFavourite = () => {
         const filterCurrentFavourite = itemsInStorage.filter(item => item.login.uuid !== passedId)
         setItemsInStorage(filterCurrentFavourite)
+        setIsFavourite(false)
         toast.warning("Removed from favourite")
 
     }
@@ -53,7 +55,7 @@ function CardUserSpecific({ open, onClose, passedId, user }) {
             <ToastContainer autoClose={2000} />
 
             {/* modal body grid Container*/}
-            <Fade cascade>
+            <Bounce top >
                 <div className='container grid grid-cols-1 md:grid-cols-3 max-w-4xl shadow-xl p-4 bg-white z-10'>
 
                     {/* grid item 1  */}
@@ -120,7 +122,7 @@ function CardUserSpecific({ open, onClose, passedId, user }) {
                         </div>
                     </div>
                 </div>
-            </Fade>
+            </Bounce >
         </section >,
         document.getElementById("portal")
     )
@@ -150,3 +152,4 @@ function getNextBirthday(dob) {
     }
 
 }
+

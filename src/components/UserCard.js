@@ -1,22 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { FaEnvelope, FaMapMarkerAlt, FaHeart } from "react-icons/fa";
 import { useLocalStorage } from './useLocalStorage';
 import CardUserSpecific from './CardUserSpecific';
-import Flip from 'react-reveal/Flip';
+import Zoom from 'react-reveal/Zoom';
 
 
 
 function UserCard({ user }) {
 
     const [itemsInStorage, setItemsInStorage] = useLocalStorage("users", [])
+    const [isFavourite, setIsFavourite] = React.useState(false)
 
-    const favouriteExist = itemsInStorage.find(favourite => favourite.login.uuid === user.login.uuid);
+    function checkFavouriteExists() {
+        const favouriteExist = itemsInStorage.find(favourite => favourite.login.uuid === user.login.uuid);
 
-    // onclick event to remove heart from usercard 
-    const removeFavourite = () => {
-        const filterCurrentFavourite = itemsInStorage.filter(item => item.login.uuid !== user.login.uuid)
-        setItemsInStorage(filterCurrentFavourite)
+        if (favouriteExist) {
+            setIsFavourite(true)
+        }
     }
+    useEffect(() => {
+        checkFavouriteExists()
+    }, [])
 
     // Modal open aand closs state
     const [isOpen, setIsOpen] = React.useState(false);
@@ -33,7 +37,7 @@ function UserCard({ user }) {
 
 
     return (
-        <Flip left cascade>
+        <Zoom>
             <div className=' relative'>
                 <div className="text-slate-900 hover:text-slate-800 card" onClick={openModal} >
                     <figure className=" relative w-full h-full border-b bg-slate-200" >
@@ -46,10 +50,11 @@ function UserCard({ user }) {
                         <p className='flex items-center gap-2'><FaEnvelope />{user.email}</p>
                     </div>
                 </div>
-                {isOpen && (<CardUserSpecific key={user.login.uuid} onClose={closeModal} passedId={user.login.uuid} user={user} open={isOpen} />)}
-                {favouriteExist && <button className="heart text-red-500 cursor-pointer" onClick={removeFavourite}><FaHeart /></button>}
+                {isOpen && (<CardUserSpecific key={user.login.uuid} onClose={closeModal} passedId={user.login.uuid} user={user} open={isOpen} setIsFavourite={setIsFavourite} />)}
+                {isFavourite && < button className={`heart text-red-500 `}><FaHeart /></button>}
+
             </div>
-        </Flip >
+        </Zoom >
 
     )
 }
