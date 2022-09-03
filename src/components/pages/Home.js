@@ -10,6 +10,7 @@ import SearchInput from '../SearchInput';
 import Sort from '../Sort';
 
 
+
 function Home() {
 
     const { isLoading, users } = React.useContext(UsersContext);
@@ -99,7 +100,7 @@ function Home() {
                 <Hero />
                 <ToastContainer autoClose={2000} />
                 <section className='flex flex-col justify-center items-center my-5 gap-6'>
-                    <div className='flex shadow-xl gap-4 w-full container max-w-4xl p-6 -translate-y-12 bg-slate-600'>
+                    <div className='flex shadow-xl gap-4 w-full container max-w-4xl p-6  bg-slate-200'>
                         <SearchInput handleSearchChange={handleSearchChange} value={value} />
                         <Sort handleSorting={handleSorting} />
                     </div>
