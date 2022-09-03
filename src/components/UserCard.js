@@ -6,6 +6,7 @@ import Zoom from 'react-reveal/Zoom';
 
 
 
+
 function UserCard({ user }) {
 
     const [itemsInStorage, setItemsInStorage] = useLocalStorage("users", [])

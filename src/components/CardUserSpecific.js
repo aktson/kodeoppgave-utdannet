@@ -2,9 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { useLocalStorage } from './useLocalStorage';
 import { ToastContainer, toast } from "react-toastify";
-import { FaEnvelope, FaMapMarkerAlt, FaHeart, FaHourglassHalf, FaPhoneVolume, FaBirthdayCake } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkerAlt, FaHeart, FaHourglassHalf, FaPhoneVolume, FaBirthdayCake, FaUserMinus } from "react-icons/fa";
 import moment from "moment";
 import Bounce from 'react-reveal/Bounce';
+import DownloadBtn from './DownloadBtn';
+
 
 function CardUserSpecific({ open, onClose, passedId, user, setIsFavourite }) {
 
@@ -57,16 +59,15 @@ function CardUserSpecific({ open, onClose, passedId, user, setIsFavourite }) {
             {/* modal body grid Container*/}
             <Bounce top >
                 <div className='container grid grid-cols-1 md:grid-cols-3 max-w-4xl shadow-xl p-4 bg-white z-10'>
-
                     {/* grid item 1  */}
                     <div className="grid grid-rows-2 p-4 items-center ">
                         <div style={{ background: `url(${user.picture.large}) no-repeat center`, backgroundSize: "cover", width: "100%", height: "100%" }}  ></div>
-                        <div className='grid grid-rows-2 gap-2 mt-6'>
+                        <div className='grid grid-rows-3 gap-2 mt-6'>
                             <a href={`mailto:${user.email}`} rel="noreferrer" className="flex items-center gap-2 btn justify-center w-full ">
                                 <FaEnvelope />Send Email</a>
-                            {!findExistingUser && <button className="flex items-center gap-2 btn justify-center w-full " onClick={addTofavourite}><FaHeart />Add to favourite</button>}
-                            {findExistingUser && <button className="btn bg-red-500" onClick={removeFavourite}>Remove Favourite</button>}
-
+                            {!findExistingUser && <button className="btn " onClick={addTofavourite}><FaHeart />Add to favourite</button>}
+                            {findExistingUser && <button className="btn bg-red-500" onClick={removeFavourite}><FaUserMinus />Remove Favourite</button>}
+                            <DownloadBtn user={user} />
                         </div>
                     </div>
                     {/* end of grid item */}
