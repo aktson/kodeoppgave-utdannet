@@ -117,7 +117,7 @@ h1 {
 .hero {
 	background: url("./assets/people-using-smartphones.jpg") no-repeat top;
 	background-size: cover;
-	min-height: 30vh;
+	min-height: 40vh;
 }
 .heading-hero {
 	background-color: rgba(20, 184, 166, 0.3);
