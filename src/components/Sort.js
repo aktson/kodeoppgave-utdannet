@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import UsersContext from '../context/UsersContext';
 
 
-function Sort({ handleSorting }) {
+function Sort() {
+
+    const { users, setUsers } = React.useContext(UsersContext)
+
+
+    const handleSorting = (event) => {
+        const selectedValue = event.target.value;
+        if (selectedValue === "none") {
+            setUsers(users)
+        }
+
+        if (selectedValue === "alphabatic") {
+            const alphabaticOrdered = [...users].sort((a, b) => a.name.first.localeCompare(b.name.first));
+            setUsers(alphabaticOrdered)
+
+        } else if (selectedValue === "age") {
+            const sortedByAge = [...users].sort((a, b) => parseInt(a.dob.age) - parseInt(b.dob.age));
+            setUsers(sortedByAge)
+
+        }
+    }
+
 
     return (
         <>

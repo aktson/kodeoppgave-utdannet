@@ -58,38 +58,6 @@ function Home() {
     })
 
 
-    // Sort function event to sort aplphabatically and sort by age
-    const [sortUsers, setSortUsers] = React.useState([]);
-    const [selectedValue, setSelectedValue] = React.useState("none");
-
-
-    const handleSorting = (event) => {
-        setSelectedValue(event.target.value);
-
-        if (selectedValue === "alphabatic") {
-            const alphabaticOrdered = users.sort((a, b) => a.name.first.localeCompare(b.name.first));
-            setSortUsers(alphabaticOrdered)
-            sortUsers.map(user => {
-                return <UserCard key={user.login.uuid} user={user} />
-            })
-
-        } else if (selectedValue === "age") {
-            const sortedByAge = users.sort((a, b) => parseInt(a.dob.age) - parseInt(b.dob.age));
-            setSortUsers(sortedByAge)
-            sortedByAge.map(user => {
-                return <UserCard key={user.login.uuid} user={user} />
-            })
-        }
-        else {
-            setSortUsers(users)
-        }
-    }
-
-    const sortedUsers = sortUsers.map(user => {
-        return <UserCard key={user.login.uuid} user={user} />
-    })
-
-
     const usersOnpage = currentUsersOnPage.map(user => (
         <UserCard key={user.login.uuid} user={user} />
     ))
@@ -102,7 +70,7 @@ function Home() {
                 <section className='flex flex-col justify-center items-center my-5 gap-6'>
                     <div className='flex shadow-xl gap-4 w-full container max-w-4xl p-6  bg-slate-200'>
                         <SearchInput handleSearchChange={handleSearchChange} value={value} />
-                        <Sort handleSorting={handleSorting} />
+                        <Sort />
                     </div>
                     <div className='container grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl'>
                         {value.length > 1 ? searchFilteredData : usersOnpage}
