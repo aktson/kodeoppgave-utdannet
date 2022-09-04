@@ -52,10 +52,6 @@ h1 {
 }
 
 @layer components {
-	/* NAV */
-	nav {
-		@apply p-3 bg-slate-800  flex  justify-center items-center;
-	}
 	.nav-list {
 		@apply flex flex-col items-center gap-2 mx-4 p-2 text-base text-slate-50 cursor-pointer hover:text-teal-500;
 	}
@@ -82,36 +78,6 @@ h1 {
 }
 
 /* CUSTOM STYLING */
-
-/* LOGO */
-.logo {
-	font-family: var(--heading-fonts);
-	padding: 1em;
-	font-size: 1.2em;
-	position: absolute;
-	left: 2em;
-	color: white;
-}
-.logo::before {
-	content: "";
-	position: absolute;
-	left: 60%;
-	bottom: 10px;
-	width: 180px;
-	height: 4px;
-	transform: skew(-12deg) translateX(-50%);
-	background: var(--primary);
-}
-.logo::after {
-	content: "";
-	position: absolute;
-	right: -25%;
-	bottom: 1px;
-	width: 140px;
-	height: 4px;
-	transform: skew(-12deg) translateX(-50%);
-	background: var(--primary);
-}
 
 /* HERO HOMEPAGE */
 .hero {

@@ -4,7 +4,7 @@ import Navigation from './Navigation'
 
 function Header() {
     return (
-        <header className='flex flex-col justify-center'>
+        <header className='flex bg-slate-800 relative p-4 justify-center items-center'>
             <Navigation />
         </header>
     )
