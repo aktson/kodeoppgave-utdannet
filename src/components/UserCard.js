@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { FaEnvelope, FaMapMarkerAlt, FaHeart } from "react-icons/fa";
 import { useLocalStorage } from './useLocalStorage';
 import CardUserSpecific from './CardUserSpecific';
@@ -9,8 +9,9 @@ import Zoom from 'react-reveal/Zoom';
 
 function UserCard({ user }) {
 
-    const [itemsInStorage, setItemsInStorage] = useLocalStorage("users", [])
+    const [itemsInStorage] = useLocalStorage("users", [])
     const [isFavourite, setIsFavourite] = React.useState(false)
+
 
     function checkFavouriteExists() {
         const favouriteExist = itemsInStorage.find(favourite => favourite.login.uuid === user.login.uuid);
@@ -19,7 +20,7 @@ function UserCard({ user }) {
             setIsFavourite(true)
         }
     }
-    useEffect(() => {
+    React.useEffect(() => {
         checkFavouriteExists()
     }, [])
 

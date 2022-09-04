@@ -14,7 +14,7 @@ import Sort from '../Sort';
 function Home() {
 
     const { isLoading, users } = React.useContext(UsersContext);
-    console.log(users)
+
 
     const [currentPage, setCurrentPage] = React.useState(1);
     const [usersPerPage] = React.useState(9);
