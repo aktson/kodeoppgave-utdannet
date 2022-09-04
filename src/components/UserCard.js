@@ -40,8 +40,8 @@ function UserCard({ user }) {
     return (
         <Zoom>
             <div className=' relative'>
-                <div className="text-slate-900 hover:text-slate-800 card" onClick={openModal} >
-                    <figure className=" relative w-full h-full border-b bg-slate-200" >
+                <div className="text-slate-900 hover:text-slate-800 card overflow-hidden" onClick={openModal} >
+                    <figure className=" relative w-full h-full border-b bg-slate-200 " >
                         <img className="object-cover h-36 w-36 rounded-full mx-auto absolute top-20 right-0 left-0 shadow-md" src={user.picture.large} />
                     </figure>
                     <div className='p-5 flex flex-col  row-span-2 gap-1 mt-3'>
