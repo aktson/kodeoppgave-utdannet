@@ -67,7 +67,7 @@ function Home() {
             <>
                 <Hero />
                 <ToastContainer autoClose={2000} />
-                <section className='flex flex-col justify-center items-center my-5 gap-6'>
+                <section className='flex flex-col justify-center items-center my-5 gap-6 p-4 sm:p-1'>
                     <div className='flex shadow-xl gap-4 w-full container max-w-4xl p-6  bg-slate-200'>
                         <SearchInput handleSearchChange={handleSearchChange} value={value} />
                         <Sort />

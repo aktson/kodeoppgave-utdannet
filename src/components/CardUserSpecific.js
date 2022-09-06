@@ -50,17 +50,17 @@ function CardUserSpecific({ open, onClose, passedId, user, setIsFavourite }) {
 
 
     return ReactDOM.createPortal(
-        <section className='flex flex-col justify-center items-center gap-2 ' style={{ minHeight: "60vh" }} id="my-modal">
+        <section className='flex flex-col md:justify-center items-center gap-2 p-4 sm:p-2' style={{ minHeight: "60vh" }} id="my-modal">
             {/* modal overlay */}
             <div className="w-full h-full" id="overlay" onClick={onClose}></div>
             <ToastContainer autoClose={2000} />
 
             {/* modal body grid Container*/}
-            <div className='container grid grid-cols-1 md:grid-cols-3 max-w-4xl shadow-xl p-4 bg-white z-10 animate-card-specific' >
+            <div className='container grid grid-cols-1 md:grid-cols-3 sm:max-w-4xl  shadow-xl p-4 bg-white z-10 animate-card-specific' >
                 {/* grid item 1  */}
-                <div className="grid grid-rows-2 p-4 items-center ">
-                    <div style={{ background: `url(${user.picture.large}) no-repeat center`, backgroundSize: "cover", width: "100%", height: "100%" }}  ></div>
-                    <div className='grid grid-rows-3 gap-2 mt-6'>
+                <div className="flex  flex-col p-4 md:items-center  ">
+                    <div style={{ background: `url(${user.picture.large}) no-repeat center`, backgroundSize: "cover", width: "100%", minHeight: "200px" }}  ></div>
+                    <div className='grid grid-rows-3 gap-2 mt-2 sm:mt-6 w-full'>
                         <a href={`mailto:${user.email}`} rel="noreferrer" className="flex items-center gap-2 btn justify-center w-full ">
                             <FaEnvelope />Send Email</a>
                         {!findExistingUser && <button className="btn " onClick={addTofavourite}><FaHeart />Add to favourite</button>}
@@ -101,8 +101,8 @@ function CardUserSpecific({ open, onClose, passedId, user, setIsFavourite }) {
                 {/* end of grid item */}
             </div>
             {/* end og grid Container*/}
-            <div className=' w-full max-w-4xl z-10 animate-card-specific'>
-                <div className='grid grid-cols-3 gap-2  text-center text-slate-800'>
+            < div className=' w-full max-w-4xl z-10 animate-card-specific' >
+                <div className='grid grid-cols-1 md:grid-cols-3 gap-2  text-center text-slate-800'>
                     <div className='flex flex-col shadow-lg p-3 bg-white gap-3 items-center justify-around'>
                         <FaHourglassHalf className='text-3xl text-teal-600' />
                         <span>Time Since Registered</span>
@@ -120,7 +120,7 @@ function CardUserSpecific({ open, onClose, passedId, user, setIsFavourite }) {
                         <p className='text-teal-700'>{user.cell}</p>
                     </div>
                 </div>
-            </div>
+            </div >
         </section >,
         document.getElementById("portal")
     )
