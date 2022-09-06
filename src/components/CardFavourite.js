@@ -36,7 +36,7 @@ function CardFavourite({ user }) {
 
             <Bounce>
 
-                <div className="text-slate-900 flex items-center p-3 justify-center shadow-xl border-l-2 border-teal-500"  >
+                <div className="text-slate-900 flex flex-col lg:flex-row items-center p-3 justify-center shadow-xl border-l-2 border-teal-500"  >
                     <ToastContainer />
                     <figure>
                         <img className="object-cover h-36 w-36 rounded-full mx-auto top-20 right-0 left-0 shadow-lg" src={user.picture.large} />

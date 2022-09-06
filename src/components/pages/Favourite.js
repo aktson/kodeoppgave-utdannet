@@ -13,7 +13,7 @@ function Favourite() {
     return (
         <section className='flex justify-center items-center my-6'>
             {itemsInStorage.length === 0 ? <div className='px-8 py-5 shadow-lg bg-teal-600 text-xl text-white'>No favourite user here yet!!</div> :
-                <div className='grid grid-cols-1 sm:grid-cols-3 gap-4'>{users}</div>}
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-col-3 gap-4'>{users}</div>}
         </section>
     )
 }
