@@ -99,7 +99,7 @@ h1 {
 	right: 0;
 	bottom: 0;
 	left: 0;
-	z-index: 999;
+	z-index: 15;
 	--tw-bg-opacity: 0.8;
 	background-color: hsla(var(--nf) / var(--tw-bg-opacity, 1));
 	transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;

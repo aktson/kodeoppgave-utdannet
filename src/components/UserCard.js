@@ -28,9 +28,9 @@ function UserCard({ user }) {
     const [isOpen, setIsOpen] = React.useState(false);
 
     const openModal = () => {
+
         setIsOpen(true);
         let viewportWidth = window.innerWidth;
-
         if (viewportWidth >= "769") {
             document.body.style.overflow = "hidden";
         }
@@ -58,7 +58,6 @@ function UserCard({ user }) {
                 </div>
                 {isOpen && (<CardUserSpecific key={user.login.uuid} onClose={closeModal} passedId={user.login.uuid} user={user} open={isOpen} setIsFavourite={setIsFavourite} />)}
                 {isFavourite && < button className={`heart text-red-500 `}><FaHeart /></button>}
-
             </div>
         </Zoom >
 

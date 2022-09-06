@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { useLocalStorage } from './useLocalStorage';
 import { ToastContainer, toast } from "react-toastify";
-import { FaEnvelope, FaMapMarkerAlt, FaHeart, FaHourglassHalf, FaPhoneVolume, FaBirthdayCake, FaUserMinus } from "react-icons/fa";
+import { FaEnvelope, FaMapMarkerAlt, FaHeart, FaHourglassHalf, FaPhoneVolume, FaBirthdayCake, FaUserMinus, FaTimes } from "react-icons/fa";
 import moment from "moment";
 import DownloadBtn from './DownloadBtn';
 
@@ -50,15 +50,17 @@ function CardUserSpecific({ open, onClose, passedId, user, setIsFavourite }) {
 
 
     return ReactDOM.createPortal(
-        <section className='flex flex-col md:justify-center items-center gap-2 p-4 sm:p-2' style={{ minHeight: "60vh" }} id="my-modal">
+        <section className='flex flex-col md:justify-center items-center gap-2 p-4 sm:p-2 relative' style={{ minHeight: "60vh" }} id="my-modal">
             {/* modal overlay */}
             <div className="w-full h-full" id="overlay" onClick={onClose}></div>
             <ToastContainer autoClose={2000} />
 
             {/* modal body grid Container*/}
-            <div className='container grid grid-cols-1 md:grid-cols-3 sm:max-w-4xl  shadow-xl p-4 bg-white z-10 animate-card-specific' >
+            <div className='container grid grid-cols-1 md:grid-cols-3 sm:max-w-4xl  shadow-xl p-4 bg-white z-10 animate-card-specific relative' >
+                <button className='absolute top-1 right-1 text-2xl font-bold text-teal-600 cursor-pointer p-1' onClick={onClose} style={{ zIndex: "20" }}><FaTimes /></button>
                 {/* grid item 1  */}
-                <div className="flex  flex-col p-4 md:items-center  ">
+                <div className="flex  flex-col p-4 md:items-center relative  ">
+
                     <div style={{ background: `url(${user.picture.large}) no-repeat center`, backgroundSize: "cover", width: "100%", minHeight: "200px" }}  ></div>
                     <div className='grid grid-rows-3 gap-2 mt-2 sm:mt-6 w-full'>
                         <a href={`mailto:${user.email}`} rel="noreferrer" className="flex items-center gap-2 btn justify-center w-full ">
