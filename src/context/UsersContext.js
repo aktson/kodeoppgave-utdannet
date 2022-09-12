@@ -13,9 +13,7 @@ export function UsersProvider({ children }) {
     async function getUsers() {
         try {
 
-            const response = await fetch(baseUrl + "?seed=00000&page=1&results=24", {
-                mode: "cors",
-            });
+            const response = await fetch(baseUrl + "?seed=00000&page=1&results=24");
             const data = await response.json();
 
             const fetchedUsers = data.results;
